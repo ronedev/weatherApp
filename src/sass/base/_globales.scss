@@ -8,3 +8,8 @@ html {
 *:after {
   box-sizing: inherit;
 }
+
+h1,h2,h3,p,span{
+  font-family: $fuente_titulos;
+  color: $blanco;
+}

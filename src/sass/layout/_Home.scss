@@ -1,0 +1,81 @@
+.homeContainer{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $principal;
+    position: relative;
+    overflow: hidden;
+    .nubeBackground{
+        position: absolute;
+        animation: none;
+        width: rem;
+        &.one{
+            top: 10%;
+            left: 0%;
+        }
+        &.two{
+            top: 60%;
+            left: -10%;
+            width: 20rem;
+        }
+        &.three{
+            top: 10%;
+            left: 90%;
+            width: 18rem;
+        }
+        &.four{
+            top: 50%;
+            left: 70%;
+        }
+    }
+    img{
+        width: 25rem;
+        animation: rotateImg 4s infinite linear;
+    }
+    .btnContainer{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        img{
+            width: 4rem;
+            animation: none;
+        }
+        .btn1,.btn2{
+            border: none;
+            background-color: transparent;
+        }
+        .btn1{
+            background-color: $gris;
+            color: $blanco;
+            font-family: $fuente_titulos;
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+    .temperature{
+        font-size: 10rem;
+        font-weight: 900;
+        span{
+            font-size: 4rem;
+            font-weight: 500;
+        }
+    }
+}
+
+@keyframes rotateImg {
+    40%{
+        transform: rotateY(30deg);
+    }
+    80%{
+        transform: rotateY(-30deg);
+    }
+    100%{
+        transform: rotateY(0deg);
+    }
+}
