@@ -9,7 +9,17 @@ html {
   box-sizing: inherit;
 }
 
+body{
+  background-color: $principal;
+}
+
 h1,h2,h3,p,span{
   font-family: $fuente_titulos;
   color: $blanco;
+}
+
+.headerContainer{
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }

@@ -1,0 +1,161 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $secundario;
+    height: 100vh;
+    padding: 2rem;
+    .celsiusFahrenheitBtnContainer{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 3rem;
+        margin: 1rem 0;
+        .btn3{
+            border: none;
+            background-color: $principal;
+            font-size: 2rem;
+            font-weight: 700;
+            color: $blanco;
+            font-family: $fuente_titulos;
+            border-radius: 10rem;
+            padding: .8rem;
+            &:hover{
+                cursor: pointer;
+                background-color: $gris;
+                color: $negro;
+            }
+            &.selected{
+                background-color: $gris;
+                color: $negro;
+            }
+        }
+        .btn3:nth-child(2){
+            margin-left: 1rem;
+        }
+    }
+    .nextDaysGrid{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 2rem;
+        .nextDayContainer{
+            width: 12rem;
+            height: 15rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color: $principal;
+            h3{
+                font-size: 1.5rem;
+                font-weight: 100;
+            }
+            img{
+                width: 5rem;
+            }
+            .temperatureContainer{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                p{
+                    font-family: $fuente_base;
+                    font-size: 1.5rem;
+                    font-weight: 200;
+                }
+                span{
+                    font-size: 1rem;
+                    font-family: $fuente_titulos;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+    .todayHightlights{
+        h2{
+            font-family: $fuente_titulos;
+            font-size: 2rem;
+            font-weight: 500;
+        }
+        .cardsContainer{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            align-content: center;
+            justify-items: center;
+            .infoCard{
+                width: 30rem;
+                min-height: 12rem;
+                background-color: $principal;
+                display: grid;
+                align-content: space-evenly;
+                justify-items: center;
+                padding: 1rem 0;
+                h4{
+                    color: $blanco;
+                    font-size: 1.5rem;
+                    font-family: $fuente_titulos;
+                    font-weight: 200;
+                    margin: 0;
+                }
+                img{
+                    width: 2rem;
+                }
+                span{
+                    font-size: 6rem;
+                    font-family: $fuente_base;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 700;
+                    p{
+                        font-size: 3rem;
+                        margin: 0 0 0 1rem;
+                        font-weight: 300;
+                    }
+                }
+                .progressContainer{
+                    width: 15rem;
+                    label{
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        span{
+                            font-size: 1rem;
+                            font-weight: 100;
+                        }
+                    }
+                    progress{
+                        appearance: none;
+                        width: 100%;
+                    }
+                    ::-webkit-progress-bar{
+                        border-radius: 5px;
+                        width: 100%;
+                    }
+                    ::-webkit-progress-value{
+                        background-color: $cuaternario;
+                        border-radius: 5px;
+                    }
+                }
+                .windDirection{
+                    font-size: 1.5rem;
+                    font-weight: 300;
+                    img{
+                        width: 3rem;
+                        background-color: $gris;
+                        padding: .5rem;
+                        border-radius: 2rem;
+                        margin-right: 1rem;
+                    }
+                }
+            }
+        }
+    }
+    .footer{
+        margin-top: 2rem;
+    }
+}
