@@ -6,11 +6,17 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
+    @include tablet{
+        width: 100vw;
+    }
     .nubeBackground{
         position: absolute;
         animation: none;
         width: 25rem;
         z-index: -5;
+        @include tablet{
+            width: 15rem;
+        }
         &.one{
             top: 10%;
             left: 0%;
@@ -19,11 +25,17 @@
             top: 60%;
             left: -10%;
             width: 20rem;
+            @include tablet{
+                width: 10rem;
+            }
         }
         &.three{
             top: 10%;
             left: 90%;
             width: 18rem;
+            @include tablet{
+                width: 9rem;
+            }
         }
         &.four{
             top: 50%;
@@ -33,14 +45,18 @@
     img{
         width: 25rem;
         animation: rotateImg 4s infinite linear;
+        @include tablet{
+            width: 15rem;
+        }
     }
     .btnContainer{
         display: flex;
         align-items: center;
         justify-content: space-evenly;
         width: 100%;
+        margin-bottom: 1rem;
         img{
-            width: 4rem;
+            width: 3rem;
             animation: none;
         }
         .btn1,.btn2{
@@ -56,6 +72,9 @@
             font-family: $fuente_titulos;
             font-size: 1.2rem;
             padding: 1rem 2rem;
+            @include tablet{
+                font-size: 1rem;
+            }
         }
     }
     .temperature{
@@ -63,9 +82,15 @@
         font-weight: 500;
         font-family: $fuente_base;
         margin: 0;
+        @include tablet{
+            font-size: 6rem;
+        }
         span{
             font-size: 4rem;
             font-weight: 900;
+            @include tablet{
+                font-size: 3rem;
+            }
         }
     }
     .weather{
@@ -73,6 +98,9 @@
         color: $gris;
         font-family: $fuente_base;
         font-weight: 500;
+        @include tablet{
+            font-size: 3rem;
+        }
     }
     .datePlaceContainer{
         display: flex;
@@ -84,6 +112,9 @@
         .date{
             font-size: 2rem;
             font-weight: 400;
+            @include tablet{
+                font-size: 1.5rem;
+            }
         }
         .punto{
             font-size: 3rem;
@@ -98,9 +129,15 @@
         align-items: center;
         margin-top: 2rem;
         color: $gris;
+        @include tablet{
+            font-size: 1.5rem;
+        }
         img{
             animation: none;
             width: 4rem;
+            @include tablet{
+                width: 3rem;
+            }
         }
     }
 }

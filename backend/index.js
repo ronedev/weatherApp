@@ -26,8 +26,16 @@ app.get('/get/location/:lattlong', async (req, res) => {
 app.get('/get/weather/:woeid', async (req, res) => {
     try {
         let weather = await axios.get(`https://www.metaweather.com/api/location/${req.params.woeid}/`)
-        console.log(weather.data)
         return res.send(weather.data)
+    } catch (error) {
+        return res.status(error.status ? error.status : 500).send(error)
+    }
+})
+
+app.get('/get/country/:query', async (req,res) =>{
+    try {
+        let countrys = await axios.get(`https://www.metaweather.com/api/location/search/?query=${req.params.query}`)
+        return res.send(countrys.data)
     } catch (error) {
         return res.status(error.status ? error.status : 500).send(error)
     }

@@ -6,6 +6,10 @@
     background-color: $secundario;
     height: 100vh;
     padding: 2rem;
+    @include tablet{
+        height: 100%;
+        width: 100vw;
+    }
     .celsiusFahrenheitBtnContainer{
         width: 100%;
         display: flex;
@@ -40,6 +44,9 @@
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 2rem;
+        @include tablet{
+            grid-template-columns: repeat(2, 1fr);
+        }
         .nextDayContainer{
             width: 12rem;
             height: 15rem;
@@ -74,10 +81,16 @@
         }
     }
     .todayHightlights{
+        @include tablet{
+            margin-top: 1rem;
+        }
         h2{
             font-family: $fuente_titulos;
             font-size: 2rem;
             font-weight: 500;
+            @include tablet{
+                text-align: center;
+            }
         }
         .cardsContainer{
             display: grid;
@@ -85,6 +98,9 @@
             gap: 2rem;
             align-content: center;
             justify-items: center;
+            @include tablet{
+                grid-template-columns: 1fr;
+            }
             .infoCard{
                 width: 30rem;
                 min-height: 12rem;
@@ -157,5 +173,6 @@
     }
     .footer{
         margin-top: 2rem;
+        text-align: center;
     }
 }

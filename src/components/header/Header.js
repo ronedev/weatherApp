@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import windDirection from 'img/icon/direction.png'
+import { geoContext } from 'components/context/geoContext'
 
 const Header = ({ weather }) => {
 
-    const [escalaTemperatura, setEscalaTemperatura] = useState('celsius')
+    const GeoContext = useContext(geoContext)
 
     const formatDate = (date) => {
         const days = ['LUN', 'MAR', 'MIE', 'JUE', 'VIE', 'SAB', 'DOM']
@@ -17,19 +18,25 @@ const Header = ({ weather }) => {
         return (
             <section className='header'>
                 <div className='celsiusFahrenheitBtnContainer'>
-                    <button className={escalaTemperatura === 'celsius' ? 'btn3 selected' : 'btn3'} onClick={() => setEscalaTemperatura('celsius')}>ºC</button>
-                    <button className={escalaTemperatura === 'fahrenheit' ? 'btn3 selected' : 'btn3'} onClick={() => setEscalaTemperatura('fahrenheit')}>ºF</button>
+                    <button className={GeoContext.escalaTemperatura === 'celsius' ? 'btn3 selected' : 'btn3'} onClick={() => GeoContext.changeEscalaTemperatura('celsius')}>ºC</button>
+                    <button className={GeoContext.escalaTemperatura === 'fahrenheit' ? 'btn3 selected' : 'btn3'} onClick={() => GeoContext.changeEscalaTemperatura('fahrenheit')}>ºF</button>
                 </div>
                 <div className='nextDaysGrid'>
                     {weather.map((day, idx) => {
                         if (idx > 0) {
                             return (
                                 <div className='nextDayContainer'>
-                                    <h3>{idx === 1 ? 'Mañana' : formatDate(day.applicable_date)}</h3>
+                                    <h3>{idx === 1 ? 'Tomorrow' : formatDate(day.applicable_date)}</h3>
                                     <img src={`https://www.metaweather.com/static/img/weather/png/${day.weather_state_abbr}.png`} alt="weatherIcon" />
                                     <div className='temperatureContainer'>
-                                        <p className='max'>{Math.round(day.max_temp)}<span> {escalaTemperatura === 'celsius' ? 'ºC' : 'ºF'}</span></p>
-                                        <p className='min'>{Math.round(day.min_temp)}<span> {escalaTemperatura === 'celsius' ? 'ºC' : 'ºF'}</span></p>
+                                        <p className='max'>
+                                            { GeoContext.escalaTemperatura === 'celsius' ? Math.round(day.max_temp) : (((Math.round(day.max_temp * (9/5)))) + 32) }
+                                            <span> {GeoContext.escalaTemperatura === 'celsius' ? 'ºC' : 'ºF'}</span>
+                                        </p>
+                                        <p className='min'>
+                                            {GeoContext.escalaTemperatura === 'celsius' ? Math.round(day.min_temp) : (((Math.round(day.min_temp * (9/5)))) + 32)}
+                                            <span> {GeoContext.escalaTemperatura === 'celsius' ? 'ºC' : 'ºF'}</span>
+                                        </p>
                                     </div>
                                 </div>
                             )

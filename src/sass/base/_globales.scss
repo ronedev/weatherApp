@@ -22,4 +22,7 @@ h1,h2,h3,p,span{
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr 2fr;
+  @include tablet{
+    grid-template-columns: 1fr;
+  }
 }
