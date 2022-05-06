@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import searchIcon from 'img/icon/search.png'
 import closeIcon from 'img/icon/cerrar.png'
 import { geoContext } from 'components/context/geoContext'
+import { api } from 'api'
 
 const Search = ({ visibility, setVisibility }) => {
 
@@ -14,9 +15,13 @@ const Search = ({ visibility, setVisibility }) => {
 
     const getLocations = (e) => {
         e.preventDefault()
-        fetch(`http://localhost:3002/get/country/${inputLocation}`)
-            .then(res => res.json())
-            .then(res => setLocations(res))
+        // fetch(`http://localhost:3002/get/country/${inputLocation}`)
+        api.get(`search/?query=${inputLocation}`)
+            .then(res => {
+                // console.log(res.data)
+                setLocations(res.data)
+            })
+            // .then(res => setLocations(res))
             .catch(err => console.error(`Ha ocurrido un problema al obtener las localidades: ${err}`))
     }
 
