@@ -1,20 +1,39 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import toast from 'react-hot-toast'
+import { loadingContext } from './loadingContext'
 
 const geoContext = React.createContext()
 
 const GeoProvider = ({ children }) => {
+
+    const LoadingContext = useContext(loadingContext)
+
     const [latitud, setLatitud] = useState(null)
     const [longitud, setLongitud] = useState(null)
     const [escalaTemperatura, setEscalaTemperatura] = useState('celsius')
 
     const success = (res) => {
-        setLatitud(res.coords.latitude)
-        setLongitud(res.coords.longitude)
+        if(latitud !== res.coords.latitude && longitud !== res.coords.longitude){
+            setLatitud(res.coords.latitude)
+            setLongitud(res.coords.longitude)
+        }else{
+            LoadingContext.setLoading(false)
+            toast('The selected location is the current one', {
+                icon: '🌍'
+            })
+        }
     }
 
     const updateLocation = (location)=>{
-        setLatitud(location[0])
-        setLongitud(location[1])
+        if(latitud !== location[0] && longitud !== location[1]){
+            setLatitud(location[0])
+            setLongitud(location[1])
+        }else{
+            LoadingContext.setLoading(false)
+            toast('The selected location is the current one', {
+                icon: '🌍'
+            })
+        }
     }
 
     const error = (err)=>{

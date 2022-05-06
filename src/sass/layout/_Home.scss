@@ -43,7 +43,7 @@
         }
     }
     img{
-        width: 25rem;
+        width: 20rem;
         animation: rotateImg 4s infinite linear;
         @include tablet{
             width: 15rem;
@@ -78,7 +78,7 @@
         }
     }
     .temperature{
-        font-size: 10rem;
+        font-size: 8rem;
         font-weight: 500;
         font-family: $fuente_base;
         margin: 0;
